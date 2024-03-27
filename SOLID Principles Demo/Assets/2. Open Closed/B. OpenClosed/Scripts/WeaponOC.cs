@@ -9,32 +9,26 @@ namespace SOLID.OpenClosed
     public class WeaponOC : MonoBehaviour
     {
         [SerializeField]
-        private int weapon;
-
-        [SerializeField]
         private Transform projectileSpawnPosition;
 
-        private List<ILauncher> launcher;
+        private ILauncher launcher;
 
         public Transform SpawnPos { get => projectileSpawnPosition; }
 
         private void Awake()
         {
-            launcher = GetComponents<ILauncher>().ToList();
+            launcher = GetComponent<ILauncher>();
         }
 
         void Update()
         {
             if (Input.GetButtonDown("Fire1"))
-            {
                 Fire();
-            }
         }
 
         private void Fire()
         {
-            if (weapon >= 0 && weapon < launcher.Count)
-                launcher[weapon].Launch(this);
+            launcher.Launch(this);
         }   
     }
 }

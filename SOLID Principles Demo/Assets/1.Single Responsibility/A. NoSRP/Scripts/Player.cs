@@ -13,8 +13,8 @@ namespace SOLID.SingleResponsibility
         private Transform gunPivot;
         [SerializeField]
         private Transform projectileSpawnPos;
-        [SerializeField]
-        private Transform projectileSpawnPos2;
+        //[SerializeField]
+        //private Transform projectileSpawnPos2;
         [SerializeField]
         private Rigidbody2D projectilePrefab;
         [SerializeField]

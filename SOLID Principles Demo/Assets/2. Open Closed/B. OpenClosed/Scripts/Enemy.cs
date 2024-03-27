@@ -6,6 +6,7 @@ namespace SOLID.OpenClosed
 {
     public class Enemy : MonoBehaviour
     {
+
         [SerializeField]
         private float upMax = 3f;
         [SerializeField]

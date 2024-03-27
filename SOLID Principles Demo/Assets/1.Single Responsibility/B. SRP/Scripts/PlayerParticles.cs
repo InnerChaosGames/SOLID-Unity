@@ -17,6 +17,11 @@ namespace SOLID.SingleResponsibility
             playerHealth.OnDeath += HandlePlayerDeath;
         }
 
+        private void OnDestroy()
+        {
+            playerHealth.OnDeath -= HandlePlayerDeath;
+        }
+
         private void HandlePlayerDeath()
         {
             Instantiate(deathParticlesPrefab, transform.position, Quaternion.identity);
