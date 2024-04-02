@@ -1,24 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Rock : MonoBehaviour, IEntity
 {
-    public string Name { get; }
-
+    [field: SerializeField]
+    public string Name { get; private set; }
+    [field: SerializeField]
     public int Health { get; private set; }
+    [field: SerializeField]
+    public int MaxHealth { get; private set; }
+    [field: SerializeField]
+    public float MoveSpeed { get; private set; }
+    [field: SerializeField]
+    public string Dialogue { get; private set; }
 
-    public int MaxHealth { get; }
-
-    public float MoveSpeed { get; }
-
-    public void DealDamage(int damageToDeal)
+    public void TakeDamage(int damageToDeal)
     {
-        throw new System.NotImplementedException();
+        Health -= damageToDeal;
+        Debug.Log(Name + " Remaining Health: " + Health);
     }
 
-    public void Move(Vector2 position)
+    public void Move(Vector3 position)
     {
-        throw new System.NotImplementedException();
+        // Rock doesn't move
+    }
+
+    public void Talk()
+    {
+        // Rock doesn't Talk
     }
 }

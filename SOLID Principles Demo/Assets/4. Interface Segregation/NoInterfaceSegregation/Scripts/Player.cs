@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour, IEntity
+public class Player : MonoBehaviour, IEntity
 {
     [field: SerializeField]
     public string Name { get; private set; }
@@ -16,21 +15,19 @@ public class Enemy : MonoBehaviour, IEntity
     [field: SerializeField]
     public string Dialogue { get; private set; }
 
-
     public void TakeDamage(int damageToDeal)
     {
         Health -= damageToDeal;
-        Debug.Log(Name + " Remaining Health: " + Health);
-
     }
 
     public void Move(Vector3 position)
     {
-        transform.position += position;
+        transform.position += position * MoveSpeed;
     }
 
     public void Talk()
     {
         Debug.Log(Dialogue);
     }
+
 }

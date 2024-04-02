@@ -8,8 +8,11 @@ public interface IEntity
     int Health { get; }
     int MaxHealth { get; }
     float MoveSpeed { get; }
+    string Dialogue { get; }
 
-    void DealDamage(int damageToDeal);
+    void TakeDamage(int damageToDeal);
 
-    void Move(Vector2 position);
+    void Move(Vector3 position);
+
+    void Talk();
 }
