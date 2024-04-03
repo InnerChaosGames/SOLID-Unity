@@ -26,12 +26,12 @@ namespace SOLID.NoInterfaceSegregation
 
         public void Move(Vector3 position)
         {
-            // Rock doesn't move
+            // Not Used
         }
 
         public void Talk()
         {
-            // Rock doesn't Talk
+            // Not Used
         }
     }
 }
