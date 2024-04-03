@@ -1,14 +1,15 @@
+using SOLID.NoInterfaceSegregation;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SOLID.NoInterfaceSegregation
+namespace SOLID.InterfaceSegregation
 {
     public class EnemyMovement : MonoBehaviour
     {
         [SerializeField]
         private float changeDirectionTime = 2;
-        private IEntity entity;
+        private ICanMove movingEntity;
 
         private bool goUp;
         private float currentTime = 0;
@@ -16,7 +17,7 @@ namespace SOLID.NoInterfaceSegregation
         // Start is called before the first frame update
         protected virtual void Start()
         {
-            entity = GetComponent<IEntity>();
+            movingEntity = GetComponent<ICanMove>();
 
         }
 
@@ -38,7 +39,7 @@ namespace SOLID.NoInterfaceSegregation
             {
                 direction = Vector2.down * Time.deltaTime;
             }
-            entity.Move(direction);
+            movingEntity.Move(direction);
         }
     }
 }

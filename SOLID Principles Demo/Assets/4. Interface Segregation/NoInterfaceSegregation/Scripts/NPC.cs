@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace SOLID.NoInterfaceSegregation
 {
-    public class Player : MonoBehaviour, IEntity
+    public class NPC : MonoBehaviour, IEntity
     {
         [field: SerializeField]
         public string Name { get; private set; }
@@ -17,20 +18,21 @@ namespace SOLID.NoInterfaceSegregation
         [field: SerializeField]
         public string Dialogue { get; private set; }
 
-        public void TakeDamage(int damageToDeal)
-        {
-            Health -= damageToDeal;
-        }
 
         public void Move(Vector3 position)
         {
-            transform.position += position * MoveSpeed;
+            // Not used
+        }
+
+        public void TakeDamage(int damageToDeal)
+        {
+            Health -= damageToDeal;
+            Debug.Log(Name + " Remaining Health: " + Health);
         }
 
         public void Talk()
         {
             Debug.Log(Dialogue);
         }
-
     }
 }

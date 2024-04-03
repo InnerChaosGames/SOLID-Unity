@@ -1,13 +1,15 @@
+using SOLID.InterfaceSegregation;
+using SOLID.NoInterfaceSegregation;
 using SOLID.SingleResponsibility;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SOLID.NoInterfaceSegregation
+namespace SOLID.InterfaceSegregation
 {
     public class PlayerMovement : MonoBehaviour
     {
-        private IEntity entity;
+        private ICanMove movement;
 
         private PlayerInput input;
 
@@ -15,7 +17,7 @@ namespace SOLID.NoInterfaceSegregation
         protected void Start()
         {
             input = GetComponent<PlayerInput>();
-            entity = GetComponent<IEntity>();
+            movement = GetComponent<ICanMove>();
         }
 
         // Update is called once per frame
@@ -23,9 +25,9 @@ namespace SOLID.NoInterfaceSegregation
         {
             float x = input.Horizontal;
             float y = input.Vertical;
-            Vector3 movement = new Vector2(x, y) * Time.deltaTime;
+            Vector3 dir = new Vector2(x, y) * Time.deltaTime;
 
-            entity.Move(movement);
+            movement.Move(dir);
         }
     }
 }

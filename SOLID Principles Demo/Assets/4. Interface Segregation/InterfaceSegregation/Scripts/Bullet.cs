@@ -1,8 +1,10 @@
+using SOLID.InterfaceSegregation;
+using SOLID.NoInterfaceSegregation;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SOLID.NoInterfaceSegregation
+namespace SOLID.InterfaceSegregation
 {
     public class Bullet : MonoBehaviour
     {
@@ -25,8 +27,8 @@ namespace SOLID.NoInterfaceSegregation
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            var entity = collision.GetComponent<IEntity>();
-            entity.TakeDamage(damage);
+            var healthEntity = collision.GetComponent<IHaveHealth>();
+            healthEntity.TakeDamage(damage);
             Destroy(gameObject);
         }
     }

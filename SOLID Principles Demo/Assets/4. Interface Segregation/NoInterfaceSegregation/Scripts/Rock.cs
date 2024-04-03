@@ -3,32 +3,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rock : MonoBehaviour, IEntity
+namespace SOLID.NoInterfaceSegregation
 {
-    [field: SerializeField]
-    public string Name { get; private set; }
-    [field: SerializeField]
-    public int Health { get; private set; }
-    [field: SerializeField]
-    public int MaxHealth { get; private set; }
-    [field: SerializeField]
-    public float MoveSpeed { get; private set; }
-    [field: SerializeField]
-    public string Dialogue { get; private set; }
-
-    public void TakeDamage(int damageToDeal)
+    public class Rock : MonoBehaviour, IEntity
     {
-        Health -= damageToDeal;
-        Debug.Log(Name + " Remaining Health: " + Health);
-    }
+        [field: SerializeField]
+        public string Name { get; private set; }
+        [field: SerializeField]
+        public int Health { get; private set; }
+        [field: SerializeField]
+        public int MaxHealth { get; private set; }
+        [field: SerializeField]
+        public float MoveSpeed { get; private set; }
+        [field: SerializeField]
+        public string Dialogue { get; private set; }
 
-    public void Move(Vector3 position)
-    {
-        // Rock doesn't move
-    }
+        public void TakeDamage(int damageToDeal)
+        {
+            Health -= damageToDeal;
+            Debug.Log(Name + " Remaining Health: " + Health);
+        }
 
-    public void Talk()
-    {
-        // Rock doesn't Talk
+        public void Move(Vector3 position)
+        {
+            // Rock doesn't move
+        }
+
+        public void Talk()
+        {
+            // Rock doesn't Talk
+        }
     }
 }

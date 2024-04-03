@@ -2,40 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerDialogue : MonoBehaviour
+namespace SOLID.NoInterfaceSegregation
 {
-    [SerializeField]
-    private LayerMask layerMask;
-
-    IEntity player;
-
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerDialogue : MonoBehaviour
     {
-        player = GetComponent<IEntity>();
-    }
+        [SerializeField]
+        private LayerMask layerMask;
 
+        IEntity player;
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Start is called before the first frame update
+        void Start()
         {
-            Dialogue();
+            player = GetComponent<IEntity>();
         }
-     
-    }
 
-    public void Dialogue()
-    {
-        player.Talk();
-        var collider = Physics2D.OverlapCircle(transform.position, 10, layerMask);
-        //print(collider);
-        if (collider != null)
+
+
+        // Update is called once per frame
+        void Update()
         {
-            IEntity entity = collider.GetComponent<IEntity>();
-            entity.Talk();
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Dialogue();
+            }
+
+        }
+
+        public void Dialogue()
+        {
+            player.Talk();
+            var collider = Physics2D.OverlapCircle(transform.position, 10, layerMask);
+            //print(collider);
+            if (collider != null)
+            {
+                IEntity entity = collider.GetComponent<IEntity>();
+                entity.Talk();
+            }
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SOLID.NoInterfaceSegregation
+namespace SOLID.InterfaceSegregation
 {
     public class PlayerWeapon : MonoBehaviour
     {
