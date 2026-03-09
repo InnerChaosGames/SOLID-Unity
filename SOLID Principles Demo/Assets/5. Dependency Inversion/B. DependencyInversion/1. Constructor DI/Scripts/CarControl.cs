@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.Rendering.DebugUI.Table;
 
-namespace SOLID.DependencyInversion
+namespace SOLID.DependencyInversion.ConstructorDI
 {
     public class CarControl
     {

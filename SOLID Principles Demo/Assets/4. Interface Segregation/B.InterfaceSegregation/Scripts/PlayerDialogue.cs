@@ -31,36 +31,12 @@ public class PlayerDialogue : MonoBehaviour
     public void Dialogue()
     {
         player.Talk();
-        var collider = Physics2D.OverlapCircle(transform.position, 10, layerMask);
+        var collider = Physics2D.OverlapCircle(transform.position, 3, layerMask);
         //print(collider);
         if (collider != null)
         {
             ICanTalk other = collider.GetComponent<ICanTalk>();
             other?.Talk();
         }
-    }
-}
-
-public class A
-{ 
-    public event Action bMethod;
-
-    public void AMethod()
-    {
-        Console.WriteLine("A Method");
-        bMethod?.Invoke();
-    }
-}
-
-public class B
-{
-    public B(A a)
-    {
-        a.bMethod += BMethod;
-    }
-
-    public void BMethod() 
-    {
-        Console.WriteLine("B Method"); 
     }
 }

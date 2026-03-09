@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SOLID.DependencyInversion
+namespace SOLID.DependencyInversion.ConstructorDI
 {
     [CreateAssetMenu(menuName = "Car/Settings", fileName = "CarSettings")]
     public class CarSettings : ScriptableObject
@@ -15,8 +15,8 @@ namespace SOLID.DependencyInversion
         [SerializeField]
         private bool constantController;
 
-        public float TurnSpeed { get => turnSpeed; }
-        public float MoveSpeed { get => moveSpeed; }
-        public bool UseConstantInput { get => constantController; }
+        public float TurnSpeed => turnSpeed;
+        public float MoveSpeed => moveSpeed;
+        public bool UseConstantInput => constantController;
     }
 }

@@ -32,7 +32,7 @@ namespace SOLID.NoInterfaceSegregation
         public void Dialogue()
         {
             player.Talk();
-            var collider = Physics2D.OverlapCircle(transform.position, 10, layerMask);
+            var collider = Physics2D.OverlapCircle(transform.position, 3, layerMask);
             //print(collider);
             if (collider != null)
             {

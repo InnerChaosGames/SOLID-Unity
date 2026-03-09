@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SOLID.NoOpenClosed
 {
-    public enum ProjectileType { Bullet, Rocket, Laser }
+    public enum ProjectileType { Bullet, Rocket }
 
     public class Weapon : MonoBehaviour
     {

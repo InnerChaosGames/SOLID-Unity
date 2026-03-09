@@ -13,8 +13,8 @@ namespace SOLID.SingleResponsibility
         private Transform gunPivot;
         [SerializeField]
         private Transform projectileSpawnPos;
-        [SerializeField]
-        private Transform projectileSpawnPos2;
+        //[SerializeField]
+        //private Transform projectileSpawnPos2;
         [SerializeField]
         private Rigidbody2D projectilePrefab;
         [SerializeField]
@@ -56,8 +56,8 @@ namespace SOLID.SingleResponsibility
         {
             var newProjectile = Instantiate(projectilePrefab, projectileSpawnPos.position, projectileSpawnPos.transform.rotation);
             newProjectile.linearVelocity = newProjectile.transform.right * projectileForce;
-            var newProjectile2 = Instantiate(projectilePrefab, projectileSpawnPos2.position, projectileSpawnPos2.transform.rotation);
-            newProjectile2.linearVelocity = newProjectile.transform.right * projectileForce;
+            //var newProjectile2 = Instantiate(projectilePrefab, projectileSpawnPos2.position, projectileSpawnPos2.transform.rotation);
+            //newProjectile2.linearVelocity = newProjectile.transform.right * projectileForce;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

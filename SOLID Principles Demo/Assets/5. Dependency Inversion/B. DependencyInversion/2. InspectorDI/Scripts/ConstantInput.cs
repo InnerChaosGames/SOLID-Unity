@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace SOLID.DependencyInversion
+namespace SOLID.DependencyInversion.InspectorDI
 {
-    public class ConstantInput : ICarInput
+    public class ConstantInput : MonoBehaviour, ICarInput
     {
         public float Rotation { get; private set; }
 
