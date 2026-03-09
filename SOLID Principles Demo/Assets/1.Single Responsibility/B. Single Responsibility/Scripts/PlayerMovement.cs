@@ -19,7 +19,7 @@ namespace SOLID.SingleResponsibility
         private void Update()
         {
             Vector3 movement = new Vector2(playerInput.Horizontal, playerInput.Vertical);
-            transform.position += movement * Time.deltaTime * speed;
+            transform.position += movement * (Time.deltaTime * speed);
         }
     }
 }

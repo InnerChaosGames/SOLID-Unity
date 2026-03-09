@@ -13,8 +13,8 @@ namespace SOLID.SingleResponsibility
         private Transform gunPivot;
         [SerializeField]
         private Transform projectileSpawnPos;
-        //[SerializeField]
-        //private Transform projectileSpawnPos2;
+        [SerializeField]
+        private Transform projectileSpawnPos2;
         [SerializeField]
         private Rigidbody2D projectilePrefab;
         [SerializeField]
@@ -39,7 +39,7 @@ namespace SOLID.SingleResponsibility
             float x = Input.GetAxis("Horizontal");
             float y = Input.GetAxis("Vertical");
             Vector3 movement = new Vector2(x, y);
-            transform.position += movement * Time.deltaTime * speed;
+            transform.position += movement * (Time.deltaTime * speed);
 
             Vector2 dir = camera.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -55,9 +55,9 @@ namespace SOLID.SingleResponsibility
         private void FireGun()
         {
             var newProjectile = Instantiate(projectilePrefab, projectileSpawnPos.position, projectileSpawnPos.transform.rotation);
-            newProjectile.velocity = newProjectile.transform.right * projectileForce;
-            //var newProjectile2 = Instantiate(projectilePrefab, projectileSpawnPos2.position, projectileSpawnPos2.transform.rotation);
-            //newProjectile.velocity = newProjectile.transform.right * projectileForce;
+            newProjectile.linearVelocity = newProjectile.transform.right * projectileForce;
+            var newProjectile2 = Instantiate(projectilePrefab, projectileSpawnPos2.position, projectileSpawnPos2.transform.rotation);
+            newProjectile2.linearVelocity = newProjectile.transform.right * projectileForce;
         }
 
         private void OnTriggerEnter2D(Collider2D collision)

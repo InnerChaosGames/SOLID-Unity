@@ -9,6 +9,6 @@ namespace SOLID.SingleResponsibility
         [SerializeField]
         private int damage;
 
-        public int Damage { get => damage; }
+        public int Damage => damage;
     }
 }

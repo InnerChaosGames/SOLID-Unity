@@ -24,7 +24,7 @@ namespace SOLID.SingleResponsibility
         private void FireProjectile()
         {
             var newProjectile = Instantiate(projectilePrefab, projectileSpawnPos.position, projectileSpawnPos.transform.rotation);
-            newProjectile.velocity = newProjectile.transform.right * projectileForce;
+            newProjectile.linearVelocity = newProjectile.transform.right * projectileForce;
         }
     }
 }

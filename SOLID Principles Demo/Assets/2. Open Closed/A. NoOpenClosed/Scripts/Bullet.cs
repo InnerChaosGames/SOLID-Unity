@@ -17,7 +17,7 @@ namespace SOLID.NoOpenClosed
 
         private void Update()
         {
-            transform.position += direction * Time.deltaTime * speed;
+            transform.position += direction * (Time.deltaTime * speed);
         }
     }
 }

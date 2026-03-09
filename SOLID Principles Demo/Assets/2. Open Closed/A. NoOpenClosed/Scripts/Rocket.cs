@@ -18,7 +18,7 @@ namespace SOLID.NoOpenClosed
         private void Update()
         {
             var dirToTarget = (target.transform.position - transform.position).normalized;
-            transform.position += dirToTarget * Time.deltaTime * speed;
+            transform.position += dirToTarget * (Time.deltaTime * speed);
         }
     }
 }
